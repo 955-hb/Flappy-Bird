@@ -13,6 +13,7 @@ camera.orthographic = True
 camera.fov = 20
 
 
+# main-Functions
 def update():
     bird.y = bird.y - 0.1
     for pipe in pipes:
@@ -33,8 +34,8 @@ def input(key):
         bird.y = bird.y + 2.5
 
 
+# create Pipes
 pipes = []
-
 pipe = Entity(model='quad',
               color=color.green,
               texture='white_cube',
@@ -52,5 +53,6 @@ def createPipes():
     invoke(createPipes, delay=5)
 
 
+# run App
 createPipes()
 app.run()
