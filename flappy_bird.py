@@ -3,9 +3,9 @@ import random
 
 
 app = Ursina()
-Sky(texture='sky_default')
+Sky(texture="sky_default")
 
-bird = Animation('assets/bird/bird', scale=2, collider='box')
+bird = Animation("assets/bird/bird", scale=2, collider="box")
 
 
 # Kameraeinstellungen
@@ -30,24 +30,26 @@ def update():
 
 
 def input(key):
-    if key == 'space':
+    if key == "space":
         bird.y = bird.y + 2.5
 
 
 # create Pipes
 pipes = []
-pipe = Entity(model='quad',
-              color=color.green,
-              texture='white_cube',
-              position=(20, 10),
-              scale=(3, 15, 1),
-              collider='box')
+pipe = Entity(
+    model="quad",
+    color=color.green,
+    texture="white_cube",
+    position=(20, 10),
+    scale=(3, 15, 1),
+    collider="box",
+)
 
 
 def createPipes():
     newY = random.randint(4, 12)
     newPipe = duplicate(pipe, y=newY)
-    newPipe2 = duplicate(pipe, y=newY-22)
+    newPipe2 = duplicate(pipe, y=newY - 22)
     pipes.append(newPipe)
     pipes.append(newPipe2)
     invoke(createPipes, delay=5)
